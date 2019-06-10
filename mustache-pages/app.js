@@ -16,7 +16,17 @@ app.set("view engine", "mustache")
 
 
 app.get("/", (req,res) => {
-    res.render("index")
+
+    let user = {name:"JohnDoe",
+                address:{
+                     street: "1200 Richardson",
+                     city:  "houston",
+                     state:  "texas"
+                }
+                }
+
+
+    res.render("index", user)
 })
 app.listen(PORT, () => {
     console.log(`Server is running on PORT ${PORT}.....`)
