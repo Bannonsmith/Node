@@ -11,7 +11,7 @@ const  mustacheExpress = require("mustache-express")
 app.engine("mustache", mustacheExpress())
 app.set("views", "./views")
 app.set("view engine", "mustache")
-
+app.use(bodyParser.urlencoded({extended: false}))
 app.get("/add-user", (req,res) => {
     res.render("add-user")
 })
@@ -22,6 +22,8 @@ app.post("/add-user", (req,res) => {
 
     console.log(name)
     console.log(age)
+
+    res.status(200).send()
 })
 app.get("/users", (req,res) => {
 
