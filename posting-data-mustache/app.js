@@ -3,6 +3,7 @@ const  app = express()
 const  PORT = 3000
 const bodyParser  = require("body-parser")
 const  mustacheExpress = require("mustache-express")
+// const cors = require("cors")
 
 
 
@@ -11,6 +12,17 @@ app.engine("mustache", mustacheExpress())
 app.set("views", "./views")
 app.set("view engine", "mustache")
 
+app.get("/add-user", (req,res) => {
+    res.render("add-user")
+})
+
+app.post("/add-user", (req,res) => {
+    let name = req.body.name
+    let age = req.body.age
+
+    console.log(name)
+    console.log(age)
+})
 app.get("/users", (req,res) => {
 
     let users =  
