@@ -31,7 +31,7 @@ app.get("/add-user", (req,res) => {
     res.render("add-user")
 })
 
-
+// Authentication
 function authenticate(req,res,next) {
 
 
