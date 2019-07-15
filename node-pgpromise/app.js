@@ -8,11 +8,21 @@ const db = pgp(connectionString)
 
 // CRUD operations
 
-// update specific item using dishid
-db.none("UPDATE dishes SET price = $1, course = $2 WHERE dishid = $3",[15,"Entrees",8])
+
+db.none("DELETE from dishes WHERE dishid = $1",[8])
 .then(() => {
-    console.log("UPDATED")
+    console.log("DELETED")
 }).catch(error => console.log(error))
+
+
+
+// update specific item using dishid
+
+
+// db.none("UPDATE dishes SET price = $1, course = $2 WHERE dishid = $3",[15,"Entrees",8])
+// .then(() => {
+//     console.log("UPDATED")
+// }).catch(error => console.log(error))
 
 
 
